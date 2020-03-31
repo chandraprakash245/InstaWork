@@ -21,20 +21,6 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    protected void waitForLoaderToDisappear() {
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[text('step details are being uploaded')]")));
-        waitFor(2000); // TODO revisit
-    }
-
-    private void waitFor(int pollingDuration) {
-        try {
-            Thread.sleep(pollingDuration);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     public  void sendKeys(WebElement element,String param){
         element.sendKeys(param);
     }
